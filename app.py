@@ -3,10 +3,12 @@ from PIL import Image
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from groq import Groq
+import os
+import logging
 from typing import Optional, List
 
 # Constants
-DB_FAISS_PATH = './vectorstore/db_faiss/index.pkl'
+DB_FAISS_PATH = os.path.abspath('./vectorstore/db_faiss')
 IMAGE_PATH = './ilma logo.png'  # Path to the image
 
 # API Key for Groq (Replace with your actual API key)
@@ -36,14 +38,21 @@ class GroqLLM:
 # Initialize GroqLLM
 llm = GroqLLM(client=groq_client)
 
-# Function to create a conversational bot
+
+logging.basicConfig(level=logging.DEBUG)
 def qa_bot():
     """Builds the conversational bot pipeline using FAISS for retrieval and Groq for LLM."""
     # Initialize HuggingFace embeddings
+    logging.debug("Initializing FAISS embeddings...")
     embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2", model_kwargs={'device': 'cpu'})
-    
-    # Load FAISS database
-    db = FAISS.load_local(DB_FAISS_PATH, embeddings, allow_dangerous_deserialization=True)
+    logging.debug("Loading FAISS database...")
+    try:
+        db = FAISS.load_local(DB_FAISS_PATH, embeddings, allow_dangerous_deserialization=True)
+    except Exception as e:
+        logging.error(f"Error loading FAISS database: {e}")
+        raise e
+
+
     
     def groq_retrieval_chain(query):
         """Fetches relevant documents from FAISS and generates answers using Groq."""
