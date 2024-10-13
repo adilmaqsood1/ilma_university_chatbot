@@ -4,8 +4,8 @@ from langchain.vectorstores import FAISS
 from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
-DATA_PATH = 'extracted_data.pdf'
-DB_FAISS_PATH = 'vectorstore/db_faiss'
+DATA_PATH = './extracted_data.pdf'
+DB_FAISS_PATH = './vectorstore/db_faiss'
 
 # Create vector database
 def create_vector_db():

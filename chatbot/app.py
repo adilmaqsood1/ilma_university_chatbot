@@ -6,8 +6,8 @@ from groq import Groq
 from typing import Optional, List
 
 # Constants
-DB_FAISS_PATH = 'vectorstore/db_faiss'
-IMAGE_PATH = 'ilma logo.png'  # Path to the image
+DB_FAISS_PATH = './vectorstore/db_faiss'
+IMAGE_PATH = './ilma logo.png'  # Path to the image
 
 # API Key for Groq (Replace with your actual API key)
 GROQ_API_KEY = "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"
