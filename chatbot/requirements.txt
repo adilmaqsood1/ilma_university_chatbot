@@ -1,0 +1,8 @@
+streamlit
+Pillow
+langchain-community==0.0.3  # Used for FAISS and HuggingFaceEmbeddings
+groq
+typing-extensions  # For typing.Optional and List
+sentence-transformers  # HuggingFace Embeddings model
+faiss-cpu  # FAISS library
+numpy
