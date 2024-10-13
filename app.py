@@ -3,6 +3,7 @@ from PIL import Image
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from groq import Groq
+import os
 from typing import Optional, List
 
 # Constants
@@ -41,6 +42,10 @@ def qa_bot():
     """Builds the conversational bot pipeline using FAISS for retrieval and Groq for LLM."""
     # Initialize HuggingFace embeddings
     embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2", model_kwargs={'device': 'cpu'})
+    
+    # Debug output
+    print("FAISS Database Path:", DB_FAISS_PATH)
+    print("Current Working Directory:", os.getcwd())
     
     # Load FAISS database
     db = FAISS.load_local(DB_FAISS_PATH, embeddings, allow_dangerous_deserialization=True)
