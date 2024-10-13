@@ -1,9 +1,9 @@
 streamlit==1.39.0 
 Pillow
-langchain-community==0.0.3  # Used for FAISS and HuggingFaceEmbeddings
+langchain_community==0.0.10  
 groq
-typing-extensions  # For typing.Optional and List
-sentence-transformers  # HuggingFace Embeddings model
-faiss-cpu  # FAISS library
+typing-extensions  
+sentence-transformers 
+faiss-cpu==1.7.2  
 numpy
 pydantic>=1.10
