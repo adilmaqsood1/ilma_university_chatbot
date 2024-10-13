@@ -1,4 +1,4 @@
-streamlit
+streamlit==1.39.0 
 Pillow
 langchain-community==0.0.3  # Used for FAISS and HuggingFaceEmbeddings
 groq
