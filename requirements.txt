@@ -6,3 +6,4 @@ typing-extensions  # For typing.Optional and List
 sentence-transformers  # HuggingFace Embeddings model
 faiss-cpu  # FAISS library
 numpy
+pydantic>=1.10
