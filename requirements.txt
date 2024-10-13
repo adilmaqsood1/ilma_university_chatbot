@@ -6,4 +6,4 @@ typing-extensions
 sentence-transformers 
 faiss-cpu==1.7.2  
 numpy
-pydantic>=1.10
+pydantic==1.10.7
